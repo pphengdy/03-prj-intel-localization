@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Intel: Sustainability Through the Ages</title>
+  <!-- Bootstrap CSS (RTL support included) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -138,6 +140,66 @@
       </div>
     </div>
   </section>
+
+
+    <!-- 3-Column Content Section using Bootstrap Grid -->
+  <section class="py-5">
+    <!-- Bootstrap container: centers content and adds responsive padding -->
+    <div class="container">
+      <!-- Row: creates a flexible row for columns -->
+      <div class="row g-4">
+        
+        <!-- Column 1: col-12 (full width on mobile) col-md-6 (half width on tablets) col-lg-4 (one-third on desktop) -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <h2>RISE Strategy</h2>
+          <p>
+            Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy, 
+            Intel sets ambitious 2030 goals, including driving industry-wide 
+            progress on climate action, water stewardship, and waste reduction.
+          </p>
+          <!-- Learn More Button using Bootstrap button styling -->
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+        <!-- Column 2: Same responsive classes as Column 1 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <h2>Commitment</h2>
+          <p>
+            In 2022, Intel pledged to achieve net-zero greenhouse gas emissions 
+            (Scope 1 and 2) by 2040. This commitment builds on decades of 
+            environmental initiatives and partnerships across the semiconductor 
+            industry.
+          </p>
+          <!-- Learn More Button using Bootstrap button styling -->
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+        <!-- Column 3: Same responsive classes as Columns 1 &amp; 2 -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <h2>Water &amp; Waste</h2>
+          <p>
+            Intel conserves billions of gallons of water annually and 
+            collaborates with local communities to restore watersheds.
+            Intel also upcycles and recycles materials to reduce waste and 
+            advance a circular economy.
+          </p>
+          <!-- Learn More Button using Bootstrap button styling -->
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Form -->
+  <section class="py-5">
+    <div class="container text-center">
+      <h2>Subscribe to our Newsletter</h2>
+      <!-- Add form here -->
+    </div>
+  </section>
+
+  
   <footer>
     <p>Scroll to view timeline | Hover over cards to learn more!</p>
   </footer>
