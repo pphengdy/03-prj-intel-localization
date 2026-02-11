@@ -1,0 +1,73 @@
+<!-- EXAMPLE: How to add a language switcher to your page -->
+
+<!-- Option 1: Add language buttons in the header -->
+<!-- Use this code after <header> opening tag in index.html -->
+
+<div id="language-switcher" style="
+  padding: 10px;
+  text-align: center;
+  background-color: #f0f0f0;
+  margin-bottom: 20px;
+">
+  <!-- Buttons will be created automatically by JavaScript -->
+</div>
+
+<!-- Then add this script before closing </body> tag: -->
+
+<script>
+  // Create language switcher with these supported languages
+  // Adjust the array based on which languages your site supports
+  createLanguageSwitcher(['en', 'ar', 'fr', 'es'], 'language-switcher');
+</script>
+
+<!-- 
+  ABOUT THIS EXAMPLE:
+  
+  The language switcher will be automatically populated with clickable buttons
+  for each language listed in the array: English (en), Arabic (ar), French (fr), Spanish (es)
+  
+  When a user clicks a button:
+  1. The page language changes
+  2. If it's an RTL language (like Arabic), the page direction automatically switches to RTL
+  3. If it's an LTR language (like English), the page direction switches to LTR
+  4. The preference is saved so it persists on reload
+  
+  CUSTOMIZATION:
+  - Add or remove language codes from the array
+  - Modify the inline styles to match your design
+  - Or use CSS classes (.lang-btn, .lang-btn.active) to style the buttons
+  
+  RTL LANGUAGES SUPPORTED:
+  - ar (Arabic)
+  - he (Hebrew)
+  - fa (Persian)
+  - ur (Urdu)
+  - yi (Yiddish)
+  - ku (Kurdish in Arabic script)
+  
+  All other languages will be treated as LTR.
+-->
+
+<!-- 
+  ALTERNATIVE: Manual Language Switching
+  
+  You can also manually change languages without using the switcher function:
+  
+  <button onclick="setPageDirection('ar')">عربي (Arabic)</button>
+  <button onclick="setPageDirection('en')">English</button>
+  <button onclick="setPageDirection('fr')">Français (French)</button>
+  
+  This gives you more control over button styling and placement.
+-->
+
+<!-- 
+  DEBUGGING:
+  
+  To see what's happening, open the browser console (F12)
+  and you'll see messages like:
+  
+  "Language changed to: ar | Direction: RTL"
+  "Language changed to: en | Direction: LTR"
+  
+  This helps confirm the script is working correctly.
+-->

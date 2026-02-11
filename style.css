@@ -178,6 +178,28 @@ html[dir="rtl"] .timeline-container {
   }
 }
 
+/* Language Switcher Styling */
+.lang-btn {
+  background-color: #2679a3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.lang-btn:hover {
+  background-color: #1a5080;
+}
+
+.lang-btn.active {
+  background-color: #132c56;
+  font-weight: bold;
+}
+
 @media (max-width: 767px) {
   header {
     /* Reduced padding for smaller screens */
