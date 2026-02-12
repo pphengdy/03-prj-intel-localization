@@ -5,6 +5,22 @@
   box-sizing: border-box;
 }
 
+/* Focus styles for keyboard navigation (accessibility) */
+*:focus-visible {
+  outline: 3px solid #2679a3;
+  outline-offset: 2px;
+}
+
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+html[dir="rtl"] .timeline-container {
+  justify-content: right;
+  direction: rtl;
+}
+
 /* Body Styling */
 body {
   font-family: "Outfit", Arial, sans-serif;
@@ -12,6 +28,19 @@ body {
   color: #333;
   background-color: #f4f4f4;
   margin: 0;
+}
+
+/* Heading hierarchy for better accessibility */
+h1 {
+  color: #132c56;
+}
+
+h2 {
+  color: #132c56;
+}
+
+h3 {
+  color: #333;
 }
 
 /* Header / Hero Section */
@@ -67,6 +96,7 @@ header {
   gap: 20px;
   max-width: calc((300px * 4) + (20px * 5));
   margin: 30px auto;
+  
 }
 
 .timeline-container::-webkit-scrollbar {
@@ -94,12 +124,15 @@ header {
   border-radius: 9px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   display: inline-block;
+  cursor: pointer;
 }
 
-.timeline-card:hover {
+.timeline-card:hover,
+.timeline-card:focus-visible {
   transform: scale(1.05);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Ensure timeline card images fit like a placeholder box */
@@ -132,7 +165,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(38, 121, 163, 0.9);
+  background: rgba(19, 44, 86, 0.95);
   color: white;
   display: flex;
   align-items: center;
@@ -145,26 +178,271 @@ header {
   box-sizing: border-box;
 }
 
-.timeline-card:hover p {
+.timeline-card:hover p,
+.timeline-card:focus-within p {
   opacity: 1;
 }
 
 /* Footer Note */
 footer {
+  background-color: #132c56;
+  color: white;
   text-align: center;
-  margin: 20px 0;
-  font-size: 0.9rem;
+  margin-top: 60px;
+  padding: 40px 20px;
+  border-top: 3px solid #2679a3;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer Navigation Links */
+.footer-nav {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-link {
+  color: #b3d9ff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer-link:focus-visible {
+  color: white;
+  outline: 3px solid #b3d9ff;
+  outline-offset: 2px;
+  border-radius: 2px;
+  padding: 2px 4px;
+}
+
+.footer-divider {
   color: #666;
+  margin: 0 6px;
 }
 
-html[dir="rtl"] {
-  direction: rtl;
-  text-align: right;
+/* Footer Bottom Content */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
 }
 
-html[dir="rtl"] .timeline-container {
-  justify-content: right;
-  direction: rtl;
+.footer-info {
+  font-size: 0.9rem;
+  color: #b3d9ff;
+  margin: 0 0 8px 0;
+}
+
+.footer-copyright {
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0;
+}
+
+/* Improve link focus visibility */
+a {
+  color: #2679a3;
+}
+
+a:focus-visible {
+  outline: 3px solid #2679a3;
+  outline-offset: 2px;
+}
+
+/* Three-Column Content Section */
+section:has(.row) {
+  background-color: #f9fafb;
+  padding: 60px 20px;
+}
+
+/* Column styling for the three-column section */
+.row .col-12,
+.row .col-md-6,
+.row .col-lg-4 {
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+/* Ensure columns can shrink properly */
+.row [class*="col-"] {
+  min-width: 0;
+}
+
+/* Individual column container styling */
+.row [class*="col-"] > h2,
+.row [class*="col-"] > p,
+.row [class*="col-"] > a {
+  display: block;
+}
+
+.row [class*="col-"] {
+  background-color: white;
+  border-radius: 9px;
+  padding: 25px 18px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.row [class*="col-"]:hover,
+.row [class*="col-"]:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.row [class*="col-"] h2 {
+  color: #2679a3;
+  font-size: 1.3rem;
+  font-family: "Cal Sans", Arial, sans-serif;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.row [class*="col-"] p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* Style "Learn More" links */
+.row [class*="col-"] .btn-primary {
+  background-color: #2679a3;
+  border-color: #2679a3;
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+  border: 2px solid #2679a3;
+}
+
+.row [class*="col-"] .btn-primary:hover {
+  background-color: #1a5080;
+  border-color: #1a5080;
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(38, 121, 163, 0.3);
+}
+
+.row [class*="col-"] .btn-primary:focus {
+  background-color: #1a5080;
+  border-color: #1a5080;
+  transform: scale(1.05);
+  box-shadow: 0 0 0 4px rgba(38, 121, 163, 0.25);
+}
+
+.row [class*="col-"] .btn-primary:active {
+  background-color: #0f3450;
+  border-color: #0f3450;
+  transform: scale(0.98);
+}
+
+/* Newsletter Form Styling */
+.newsletter-form {
+  background-color: white;
+  border-radius: 9px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form .form-label {
+  color: #132c56;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: block;
+  font-size: 1rem;
+}
+
+/* Required field indicator */
+.newsletter-form .text-danger {
+  color: #d32f2f;
+  margin-left: 2px;
+}
+
+.newsletter-form .form-control {
+  border: 2px solid #999;
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: 1rem;
+  width: 100%;
+  min-height: 44px;
+  color: #333;
+  background-color: #fff;
+}
+
+.newsletter-form .form-control::placeholder {
+  color: #999;
+  opacity: 0.8;
+}
+
+.newsletter-form .form-control:focus {
+  border-color: #2679a3;
+  outline: 3px solid #2679a3;
+  outline-offset: 2px;
+  background-color: #fff;
+}
+
+.newsletter-form .form-control:invalid:focus {
+  border-color: #d32f2f;
+  outline-color: #d32f2f;
+}
+
+.newsletter-form .form-text {
+  color: #555;
+  font-size: 0.875rem;
+  display: block;
+  margin-top: 6px;
+}
+
+.newsletter-form .btn-primary {
+  background-color: #2679a3;
+  border-color: #2679a3;
+  border-radius: 4px;
+  padding: 14px 24px;
+  font-weight: 600;
+  color: white;
+  border: 2px solid #2679a3;
+  cursor: pointer;
+  width: 100%;
+  min-height: 44px;
+  font-size: 1rem;
+}
+
+.newsletter-form .btn-primary:hover {
+  background-color: #1a5080;
+  border-color: #1a5080;
+}
+
+.newsletter-form .btn-primary:focus {
+  background-color: #1a5080;
+  border-color: #1a5080;
+  outline: 3px solid #132c56;
+  outline-offset: 2px;
+}
+
+.newsletter-form .btn-primary:active {
+  background-color: #0f3450;
+  border-color: #0f3450;
+}
+
+.newsletter-form .btn-primary:disabled {
+  background-color: #999;
+  border-color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 @keyframes fadeInUp {
@@ -178,26 +456,21 @@ html[dir="rtl"] .timeline-container {
   }
 }
 
-/* Language Switcher Styling */
-.lang-btn {
-  background-color: #2679a3;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  margin: 0 5px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.3s ease;
+/* Respect user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.lang-btn:hover {
-  background-color: #1a5080;
-}
-
-.lang-btn.active {
-  background-color: #132c56;
-  font-weight: bold;
+@media (max-width: 991px) {
+  /* Make three-column section responsive on tablet screens */
+  .row [class*="col-"] {
+    max-width: 100%;
+    padding: 25px 15px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -224,5 +497,24 @@ html[dir="rtl"] .timeline-container {
     flex: 0 0 auto;
     width: 90%;
     margin-bottom: 20px;
+  }
+
+  /* Make three-column section responsive on mobile */
+  .row [class*="col-"] {
+    max-width: 100%;
+  }
+
+  /* Footer responsive styling */
+  .footer-nav {
+    gap: 6px;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  .footer-link {
+    display: inline-block;
+    margin: 4px;
   }
 }
